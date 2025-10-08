@@ -7,7 +7,7 @@ int main (){
     // Densidade Populacional, PIB per Capita
 
     char estado1[20], estado2[20], codigo1[4], codigo2[4], cidade1[20], cidade2[20];
-    int pontos1, pontos2;
+    int pontos1, pontos2, opcaomenu;
     unsigned long int populacao1, populacao2;
     float area1, area2, pib1, pib2, densidade1, densidade2, pibpercapita1, pibpercapita2;
 
@@ -70,74 +70,119 @@ int main (){
     printf ("Densidade Populacional: %.2f hab/km² \n", densidade2);   
     printf ("Pib per Capita: %.2f reais. \n", pibpercapita2);
 
-    // Comparação dos atributos:
-    // Área
+    // Menu Interativo
+
+    printf ("Escolha um atributo para comparação: \n");
+    printf ("1. Área \n");
+    printf ("2. População \n");
+    printf ("3. PIB \n");
+    printf ("4. Densidade Geográfica \n");
+    printf ("5. PIB per Capita \n");
+    printf ("6. Pontos Turísticos \n");
+    printf ("Digite aqui sua escolha: ");
+    scanf ("%d", &opcaomenu);
+
+    // Comparação dos atributos usando switch:
+
+    switch (opcaomenu) {
+
+    // Área 
     
+    case 1:
     printf("Comparação de cartas (Atributo: Área):\n\n");
     printf("Carta 1 - %s (%s): %.2f km²\n", cidade1, estado1, area1);
     printf("Carta 2 - %s (%s): %.2f km²\n\n", cidade2, estado2, area2);
 
     if (area1 > area2)
         printf("Carta 1 venceu em área!\n\n");
-    else
+    else if (area2 > area1)
         printf("Carta 2 venceu em área!\n\n");
+    else
+        printf ("Empate!\n\n");
+    break;
 
     // População
 
+    case 2:
     printf("Comparação de cartas (Atributo: População):\n\n");
     printf("Carta 1 - %s (%s): %lu\n", cidade1, estado1, populacao1);
     printf("Carta 2 - %s (%s): %lu\n\n", cidade2, estado2, populacao2);
 
     if (populacao1 > populacao2)
         printf("Carta 1 venceu em população!\n\n");
-    else
+    else if (populacao2 > populacao1) 
         printf("Carta 2 venceu em população!\n\n");
+    else 
+        printf ("Empate!\n\n");
+    break;
 
     // PIB
 
+    case 3:
     printf("Comparação de cartas (Atributo: PIB):\n\n");
     printf("Carta 1 - %s (%s): %.2f bilhões\n", cidade1, estado1, pib1);
     printf("Carta 2 - %s (%s): %.2f bilhões\n\n", cidade2, estado2, pib2);
 
     if (pib1 > pib2)
         printf("Carta 1 venceu em PIB!\n\n");
-    else
+    else if (pib2 > pib1)
         printf("Carta 2 venceu em PIB!\n\n");
+    else
+        printf ("Empate!\n\n");
+    break;
 
     // Densidade
 
+    case 4:
     printf("Comparação de cartas (Atributo: Densidade Populacional):\n\n");
     printf("Carta 1 - %s (%s): %.2f hab/km²\n", cidade1, estado1, densidade1);
     printf("Carta 2 - %s (%s): %.2f hab/km²\n\n", cidade2, estado2, densidade2);
 
     if (densidade1 < densidade2)
         printf("Carta 1 venceu em densidade populacional!\n\n");
-    else
+    else if (densidade2 < densidade1)
         printf("Carta 2 venceu em densidade populacional!\n\n");
+    else 
+        printf ("Empate!\n\n");
+    break;
 
     // PIB per Capita
 
+    case 5:
     printf("Comparação de cartas (Atributo: PIB per Capita):\n\n");
     printf("Carta 1 - %s (%s): R$ %.2f\n", cidade1, estado1, pibpercapita1);
     printf("Carta 2 - %s (%s): R$ %.2f\n\n", cidade2, estado2, pibpercapita2);
 
     if (pibpercapita1 > pibpercapita2)
         printf("Carta 1 venceu em PIB per capita!\n\n");
-    else
+    else if (pibpercapita2 > pibpercapita1)
         printf("Carta 2 venceu em PIB per capita!\n\n");
+    else
+        printf ("Empate!\n\n");
+    break;
 
     // Pontos Turísticos
 
+    case 6:    
     printf("Comparação de cartas (Atributo: Pontos Turísticos):\n\n");
     printf("Carta 1 - %s (%s): %d\n", cidade1, estado1, pontos1);
     printf("Carta 2 - %s (%s): %d\n\n", cidade2, estado2, pontos2);
 
     if (pontos1 > pontos2)
         printf("Carta 1 venceu em pontos turísticos!\n\n");
-    else
+    else if (pontos2 > pontos1)
         printf("Carta 2 venceu em pontos turísticos!\n\n");
-
+    else
+        printf ("Empate!\n\n");
+    break;    
     
+    // Default (Para opção inválida)
+
+    default:
+        printf ("Opção inválida. \n");
+    }    
+
         //Fim do Código
+
     return 0;
 }
